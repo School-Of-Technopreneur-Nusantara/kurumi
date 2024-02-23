@@ -4,10 +4,10 @@
   "description": "A TypeScript template project.",
   "main": "dist",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "pnpm run build && node -r dotenv/config dist",
     "lint": "eslint src --ext ts",
     "lint:fix": "eslint src --fix --ext ts",
-    "build": "swc src -d dist"
+    "build": "swc src -d dist --config-file .swcrc --strip-leading-paths"
   },
   "type": "module",
   "author": "KagChi",
@@ -16,9 +16,11 @@
     "@hazmi35/eslint-config": "^12.0.0",
     "@swc/cli": "^0.3.9",
     "@swc/core": "^1.4.2",
+    "@types/common-tags": "^1.8.4",
     "@types/node": "^20.11.20",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
+    "dotenv": "^16.4.5",
     "eslint": "^8.56.0",
     "rimraf": "^5.0.5",
     "typescript": "^5.3.3"
@@ -37,5 +39,17 @@
       "@hazmi35/eslint-config/typescript"
     ],
     "rules": {}
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@sapphire/pieces": "^4.2.2",
+    "@sapphire/result": "^2.6.6",
+    "@sapphire/utilities": "^3.15.3",
+    "@whiskeysockets/baileys": "^6.6.0",
+    "common-tags": "^1.8.2",
+    "googleapis": "^133.0.0",
+    "jimp": "^0.16.1",
+    "liqueur": "^1.2.0",
+    "tslib": "^2.6.2"
   }
 }
