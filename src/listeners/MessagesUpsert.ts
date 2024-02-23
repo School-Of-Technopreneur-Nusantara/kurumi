@@ -18,7 +18,7 @@ export class MessagesUpsert extends Listener {
             const viewOnceData = message?.viewOnceMessage ?? message?.viewOnceMessageV2 ?? message?.viewOnceMessageV2Extension;
             const media = viewOnceData?.message?.imageMessage ?? viewOnceData?.message?.audioMessage ?? viewOnceData?.message?.videoMessage;
             if (viewOnceData && media) {
-                const type = ["video", "image"];
+                const type = ["video", "image", "audio"];
                 const mediaType = type.find(x => media.mimetype?.includes(x));
 
                 const stream = await downloadContentFromMessage({
@@ -53,6 +53,13 @@ export class MessagesUpsert extends Listener {
 
                              Hey, ${pushName ? pushName : `@${key.participant}`} tolong jangan kirim 1x lihat yaa !
                             `
+                        }, {
+                            quoted: messages[0]
+                        });
+                    }
+                    case "audio": {
+                        return this.container.client.socket?.sendMessage(key.remoteJid!, {
+                            audio: Buffer.concat(bufferArray)
                         }, {
                             quoted: messages[0]
                         });
