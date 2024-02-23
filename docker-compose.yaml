@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  kurumi:
+    image: ghcr.io/school-of-technopreneur-nusantara/kurumi:latest-dev
+    volumes:
+      - session:/app/auth/baileys
+      - ./sheets.json:/app/auth/sheets.json
+    restart: unless-stopped
+    env_file:
+      - .env
+
+volumes:
+  session:
