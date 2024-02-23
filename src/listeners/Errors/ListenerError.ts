@@ -1,4 +1,4 @@
-import type { LoaderPieceContext } from "@sapphire/pieces";
+import { LoaderPieceContext } from "@sapphire/pieces";
 import { Events, Listener } from "liqueur";
 
 export class ListenerError extends Listener {

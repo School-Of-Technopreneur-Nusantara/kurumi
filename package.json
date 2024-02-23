@@ -1,7 +1,7 @@
 {
-  "name": "template",
+  "name": "@sotn/kurumi",
   "version": "1.0.0",
-  "description": "A TypeScript template project.",
+  "description": "The servant bot for Science Club Group",
   "main": "dist",
   "scripts": {
     "start:dev": "pnpm run build && node -r dotenv/config dist",
@@ -38,7 +38,9 @@
       "plugin:@typescript-eslint/recommended",
       "@hazmi35/eslint-config/typescript"
     ],
-    "rules": {}
+    "rules": {
+      "@typescript-eslint/no-unsafe-argument": "off"
+    }
   },
   "dependencies": {
     "@hapi/boom": "^10.0.1",

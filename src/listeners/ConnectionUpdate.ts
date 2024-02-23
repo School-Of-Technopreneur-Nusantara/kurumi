@@ -1,7 +1,6 @@
-import type { Boom } from "@hapi/boom";
-import type { LoaderPieceContext } from "@sapphire/pieces";
-import { DisconnectReason } from "@whiskeysockets/baileys";
-import type { BaileysEventMap } from "@whiskeysockets/baileys";
+import { Boom } from "@hapi/boom";
+import { LoaderPieceContext } from "@sapphire/pieces";
+import { DisconnectReason, BaileysEventMap } from "@whiskeysockets/baileys";
 import { Listener } from "liqueur";
 
 export class ConnectionUpdate extends Listener {
