@@ -49,7 +49,7 @@ interface Responden {
     nim: string;
 }
 
-setTimeout(async () => {
+setInterval(async () => {
     await Result.fromAsync(async () => {
         const values = await sheets.spreadsheets.values.get({
             spreadsheetId: sheetId,
