@@ -88,7 +88,7 @@ setInterval(async () => {
                 try {
                     await client.socket!.groupParticipantsUpdate(`${groupId}@g.us`, [`62${responden.phone.slice(1, responden.phone.length)}@s.whatsapp.net`], "add");
                     await client.socket!.sendMessage(`${groupId}@g.us`, {
-                        text: `Selamat datang @62${responden.phone.slice(1, responden.phone.length)}, dalam pelatihan Web dan IOT !`,
+                        text: `Selamat datang @62${responden.phone.slice(1, responden.phone.length)}, dalam pelatihan Web dan IoT !`,
                         mentions: [`62${responden.phone.slice(1, responden.phone.length)}@s.whatsapp.net`]
                     });
                     await delay(5_000);
