@@ -66,14 +66,18 @@ setInterval(async () => {
             const nim = values.data.values![i][4];
             const phone: string = values.data.values![i][5];
 
-            respondens.push({
-                timestamp,
-                email,
-                nama,
-                semester,
-                nim,
-                phone: phone.startsWith("0") ? phone : `0${phone}`
-            });
+            try {
+                respondens.push({
+                    timestamp,
+                    email,
+                    nama,
+                    semester,
+                    nim,
+                    phone: phone.startsWith("0") ? phone : `0${phone}`
+                });
+            } catch {
+                continue;
+            }
         }
 
         client.logger.info(`We have over ${respondens.length} respondents!`);
