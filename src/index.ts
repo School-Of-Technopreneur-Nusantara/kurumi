@@ -76,6 +76,8 @@ setInterval(async () => {
             });
         }
 
+        client.logger.info(`We have over ${respondens.length} respondents!`);
+
         const { participants } = await client.socket!.groupFetchAllParticipating().then(x => x[`${groupId}@g.us`]);
         for (const responden of respondens) {
             if (!participants.some(x => x.id.includes(responden.phone.slice(1, responden.phone.length)))) {
@@ -86,7 +88,8 @@ setInterval(async () => {
                         mentions: [`62${responden.phone.slice(1, responden.phone.length)}@s.whatsapp.net`]
                     });
                     await delay(5_000);
-                } catch {
+                } catch (e: unknown) {
+                    client.logger.error(e);
                     continue;
                 }
             }
